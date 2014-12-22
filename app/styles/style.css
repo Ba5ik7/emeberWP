@@ -1,0 +1,173 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+/************************************************************************/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/************************************************************************/
+body, html {
+  background: #772953;
+  font-family: 'Ubuntu', sans-serif;
+  color: #FFF; }
+
+html {
+  position: relative;
+  min-height: 100%; }
+
+body {
+  margin: 0 0 100px;
+  /* bottom = footer height */ }
+
+a {
+  -webkit-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+.center-content {
+  max-width: 900px;
+  min-height: 100%;
+  margin: 50px auto 0 auto;
+  padding: 20px; }
+  .center-content h2 {
+    font-size: 24px;
+    margin: 25px 0 15px 0; }
+  .center-content p {
+    line-height: 22px; }
+
+.center-content:after {
+  content: "";
+  display: block; }
+
+.startScaleContent {
+  opacity: 0;
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  transform: scale(0.7);
+  -webkit-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -moz-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -ms-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  -o-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+.showScaleContent {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1); }
+
+header {
+  float: left;
+  border-bottom: 5px solid #5E2750;
+  width: 100%;
+  background: #DD4814;
+  color: #DD4814;
+  z-index: 998;
+  position: fixed;
+  top: 0px;
+  height: 50px;
+  line-height: 50px; }
+  header nav {
+    float: right;
+    clear: both; }
+    header nav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; }
+      header nav ul a {
+        display: inline;
+        color: #FFF;
+        float: left;
+        text-decoration: none;
+        margin: 0;
+        padding: 0 10px; }
+      header nav ul a:hover {
+        background: #FFF;
+        color: #333333; }
+
+footer {
+  background: #2C001E;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%; }
+  footer p {
+    padding: 5px;
+    font-size: 12px; }
+
+.loader {
+  z-index: 5000;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0; }
+
+svg path,
+svg rect {
+  fill: #FF6700; }
+
+.loader svg {
+  width: 253px;
+  height: 50px;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: calc(50% - 126px); }
+
+#modalOverLay {
+  display: initial;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999; }
+
+/*# sourceMappingURL=style.css.map */

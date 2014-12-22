@@ -1,0 +1,28 @@
+<div>
+
+<header>
+
+    <nav>
+        <ul>
+        {{#each row in pages}}
+            {{#link-to 'page' row.id}} <li>{{row.title}}</li> {{/link-to}}
+        {{/each}}
+
+            {{#link-to 'post' }} <li>POSTS</li> {{/link-to}}
+        </ul>
+    </nav>
+
+</header>
+<div class="center-content">
+    {{outlet 'centercontent'}}
+</div>
+
+
+</div>
+
+<footer class="site-footer">
+    <p>I'm the Sticky Footer.</p>
+</footer>
+
+{{outlet modal}}
+{{outlet loading}}
