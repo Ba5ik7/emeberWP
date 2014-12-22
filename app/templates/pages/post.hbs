@@ -1,6 +1,21 @@
-{{#each}}   
+{{#each}} 
 
-    {{title}}<br><br> 
+    <article>
+
+        <h6>{{date}}</h6>
+        
+        <h1>{{title}}</h1>
+
+        <img {{bind-attr src=featured_image }}>
+        
+        <p>{{{excerpt}}}</p>
+        
+        {{!-- <a href=""></a> {{link}} --}}
+        <a href="">Read More</a>
+    
+    </article>
+
+{{!--     {{title}}<br><br> 
 
     {{author}}<br><br> 
 
@@ -48,7 +63,7 @@
 
     {{title}}<br><br> 
 
-    {{type}}<br><br>
+    {{type}}<br><br> --}}
 
 
 {{/each}}
