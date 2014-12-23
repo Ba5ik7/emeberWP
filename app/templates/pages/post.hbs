@@ -1,17 +1,19 @@
 {{#each}} 
 
-    <article>
+    <article class="paper-effect">
 
         <h6>{{date}}</h6>
+
+        {{#if featured_image}}
+            <img {{bind-attr src=featured_image.source }}>
+        {{/if}}
         
         <h1>{{title}}</h1>
 
-        <img {{bind-attr src=featured_image }}>
-        
         <p>{{{excerpt}}}</p>
         
         {{!-- <a href=""></a> {{link}} --}}
-        <a href="">Read More</a>
+        <a >Read More</a>
     
     </article>
 

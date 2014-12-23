@@ -16,7 +16,7 @@ Emberwp.Posts = DS.Model.extend({
 
     excerpt: DS.attr('string'),
 
-    featured_image: DS.attr('string'),
+    featured_image: DS.attr('object'),
 
     format: DS.attr('string'),
 
