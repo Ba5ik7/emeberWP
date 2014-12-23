@@ -1,6 +1,5 @@
 Emberwp.PostView = Ember.View.extend({
 
-
     templateName: 'pages/post',
 
     didInsertElement: function() {
@@ -16,6 +15,6 @@ Emberwp.PostView = Ember.View.extend({
     },
 
     animateOut : function (done) {
-        done();
+         done();
     }
 });

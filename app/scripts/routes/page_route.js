@@ -4,10 +4,20 @@ Emberwp.PageRoute = Ember.Route.extend({
 
         return this.store.find('pages', params.page_id);
 
+        // var self = this;
+
+        // self.postID = params.page_id
+
+        // return this.store.filter('pages', function(item){
+
+        //          if (item.id == self.postID) {
+
+        //             return item;
+        //         };
+        // });
     },
 
     renderTemplate: function(controller, model) {
-
 
         this.render("page", {
         

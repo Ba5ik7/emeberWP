@@ -3,52 +3,32 @@ Emberwp.PageView = Ember.View.extend({
     templateName: 'pages/page',
 
     contentDidChange: function() {
-
         _this = this;
-
-        if(Emberwp.TRANS_SWITCH){
-           
-            setTimeout(function() {
+        if(Emberwp.IS_PAGES) {
+            if(Emberwp.TRANS_SWITCH){
+                setTimeout(function() {
+                    TweenMax.to("#body-text", .5, {force3D:true, opacity:'1',  scale:'1'})
+                }, 150);
                 
-                _this.animateIn();
-
-            }, 250);
-            
-        } else if (!Emberwp.NULL_START  ){
-        
-            this.animateOut();
-
-        }
-        
-        Emberwp.TRANS_SWITCH = !Emberwp.TRANS_SWITCH;
-
-    }.observes( 'controller.content' ),
+            } else if (!Emberwp.NULL_START  ){
+                TweenMax.to($('#body-text') , .1, {force3D:true, opacity:'0',  scale:'.1'});
+            }
+            Emberwp.TRANS_SWITCH = !Emberwp.TRANS_SWITCH;
+        };
+    }.observesBefore( 'controller.content' ),
 
     didInsertElement: function() {
         Emberwp.NULL_START = false;
         Emberwp.IS_PAGES = true;
-    },
 
-    willAnimateIn : function () {
-        
-        $( '#body-text' ).addClass('startScaleContent');
-    
+        $('#body-text').css({ opacity: '0', transform: 'scale(0.7)' });
     },
 
     animateIn : function (done) {
-       
-       $( '#body-text' ).addClass('showScaleContent');
-       
-       TweenMax.to( $('.center-content h2'), .2, {css:{marginLeft:0,  scale:1}} );
+        TweenMax.to("#body-text", .5, {force3D:true, opacity:'1',  scale:'1' , onComplete:done});
     },
 
     animateOut : function (done) {
-        
-        $( '#body-text' ).removeClass('showScaleContent');
-        
-        TweenMax.to( $('.center-content h2'), .2, {css:{marginLeft:250, scale:2}} );
-
-        if (!Emberwp.IS_PAGES )
-            done();
+        TweenMax.to("#body-text", .5, {force3D:true, opacity:'0',  scale:'.7', onComplete:done});
     }
 });

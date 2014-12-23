@@ -8,14 +8,18 @@ Emberwp.ApplicationRoute = Ember.Route.extend({
     
             new Em.RSVP.hash({
 
-                pages : self.store.find('pages')
+                pages : self.store.find('pages'),
+                
+                posts : self.store.find('posts')
                 
             }).then(function (results) {
 
                 resolve({
 
-                    pages: results.pages
-                                   
+                    pages: results.pages,
+                    
+                    posts: results.posts
+               
                 }, function (error){
 
                     console.log("error on call", error);

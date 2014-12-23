@@ -1,5 +1,7 @@
 Emberwp.Posts = DS.Model.extend({
 
+    ID: DS.attr('number'),
+
     title: DS.attr('string'),
 
     author: DS.attr('object'),
