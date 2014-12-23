@@ -1,12 +1,12 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
-
-
 body, html{
     background: #772953;
     font-family: 'Ubuntu', sans-serif;
     color: #FFF;
 }
-
+img{
+    max-width: 100%;
+}
 html {
     position: relative;
     min-height: 100%;
@@ -22,8 +22,7 @@ a{
     -o-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94); 
 }
-
-.center-content{
+main {
     max-width: 900px;
     min-height: 100%;
     margin: 50px auto 0 auto;
@@ -36,11 +35,10 @@ a{
         line-height: 22px;
     }
 }
-.center-content:after {
+main:after {
     content: "";
     display: block;
 }
-
 header{
     float: left;
     border-bottom:5px solid #5E2750;
@@ -75,6 +73,7 @@ header{
     }
 }
 footer {
+    display: none;
     background:#2C001E;
     position: absolute;
     left: 0;
@@ -115,7 +114,7 @@ svg rect{
     z-index: 999; 
 }
 
-article{
+summary{
     color: #333333;
     //background-color:#FFF;
     max-width:600px;
@@ -134,7 +133,7 @@ article{
         clear: both;
         margin: 15px 0;
     }
-    h6{
+    time{
         color: #AEA79F;
         font-size: 12px;
         margin-bottom:5px;
@@ -148,38 +147,40 @@ article{
         color: #333333;
         padding:15px;
         float: right;
+        cursor: pointer;
     }
     img{
         width: 100%;
     }
 }
 
-article:hover{
+summary:hover{
     color: #FFF;
     -webkit-box-shadow: 0px 17px 41px 6px rgba(31,0,31,0.68);
     -moz-box-shadow: 0px 17px 41px 6px rgba(31,0,31,0.68);
     box-shadow: 0px 17px 41px 6px rgba(31,0,31,0.68);
 }
 
-.startScaleContent{
-    opacity: 0;
-    -webkit-transform: scale(0.7);
-    -moz-transform: scale(0.7);
-    -ms-transform: scale(0.7);
-    -o-transform: scale(0.7);
-    transform: scale(0.7);
-    -webkit-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    -moz-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    -ms-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    -o-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-}
-
-.showScaleContent {
-    opacity: 1;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -ms-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1); 
+article{
+    padding:20px;
+    background-color:#FFF;
+    color:#333333;
+    img.featured-image{
+        border-radius: 14px;
+        -webkit-box-shadow: 0px 17px 41px 6px rgba(31,0,31,0.68);
+        -moz-box-shadow: 0px 17px 41px 6px rgba(31,0,31,0.68);
+        box-shadow: 0px 17px 41px 6px rgba(31,0,31,0.68);
+    }
+    h1:first-child{
+        font-size: 42px;
+        clear: both;
+        margin: 25px 0;
+    }
+    time:first-of-type{
+        color: #AEA79F;
+        font-size: 12px;
+        margin-bottom:5px;
+        float: left;
+        clear: both;
+    }
 }

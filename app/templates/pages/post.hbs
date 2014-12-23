@@ -1,3 +1,26 @@
 {{#each}}
-    <h1>{{title}}</h1>
+
+    <article>
+
+        {{#if featured_image}}
+                <img class="featured-image" {{bind-attr src=featured_image.source }}>
+        {{/if}}
+
+        <div>
+
+            <h1>{{title}}</h1>
+
+            <div>
+                {{{content}}}
+            </div>
+
+            <img {{bind-attr src=author.avatar }}>
+
+            {{author.nickname}}
+            <time>{{date}}</time>
+
+        </div>
+        
+    </article>
+    
 {{/each}}

@@ -1,8 +1,8 @@
 {{#each}} 
 
-    <article>
+    <summary>
 
-        <h6>{{date}}</h6>
+        <time>{{date}}</time>
 
         {{#if featured_image}}
             <img {{bind-attr src=featured_image.source }}>
@@ -12,61 +12,8 @@
 
         <p>{{{excerpt}}}</p>
         
-        
         {{#link-to 'post' id }} <span>Read More</span> {{/link-to}}
-        {{!-- <span {{action goToPost id }} >Read More</span> --}}
     
-    </article>
-
-{{!--     {{title}}<br><br> 
-
-    {{author}}<br><br> 
-
-    {{comment_status}}<br><br> 
-
-    {{{content}}}<br><br> 
-
-    {{date}}<br><br> 
-
-    {{date_gmt}}<br><br> 
-
-    {{date_tz}}<br><br> 
-
-    {{{excerpt}}}<br><br> 
-
-    {{featured_image}}<br><br> 
-
-    {{format}}<br><br> 
-
-    {{guid}}<br><br> 
-
-    {{link}}<br><br> 
-
-    {{menu_order}}<br><br> 
-
-    {{meta}}<br><br>
-
-    {{modified}}<br><br> 
-
-    {{modified_gmt}}<br><br> 
-
-    {{modified_tz}}<br><br> 
-
-    {{parent}}<br><br> 
-
-    {{ping_status}}<br><br> 
-
-    {{slug}}<br><br> 
-
-    {{status}}<br><br> 
-
-    {{sticky}}<br><br>
-
-    {{terms}}<br><br> 
-
-    {{title}}<br><br> 
-
-    {{type}}<br><br> --}}
-
+    </summary>
 
 {{/each}}
