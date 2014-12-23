@@ -1,12 +1,10 @@
-
-
 <header>
 
     <nav>
         <ul>
-        {{#each row in pages}}
-            {{#link-to 'page' row.id}} <li>{{row.title}}</li> {{/link-to}}
-        {{/each}}
+            {{#each row in pages}}
+                {{#link-to 'page' row.id}} <li>{{row.title}}</li> {{/link-to}}
+            {{/each}}
 
             {{#link-to 'posts' }} <li>Blog</li> {{/link-to}}
         </ul>

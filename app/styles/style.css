@@ -5,7 +5,8 @@ body, html {
   color: #FFF; }
 
 img {
-  max-width: 100%; }
+  max-width: 100%;
+  height: auto; }
 
 html {
   position: relative;
