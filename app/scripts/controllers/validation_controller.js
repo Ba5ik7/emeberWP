@@ -1,5 +1,9 @@
 Emberwp.ValidationController = Ember.ObjectController.extend({
 
+    passwordReg : /^(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*.,<>~`\}\{\[\]\+\=\-\_\(\)\"\'\:\;\?\/]{2,32}$/,
+
+    emailReg : /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+
     userNameValid : false,
     
     emailValid : false,
@@ -20,11 +24,15 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
     userNameObserver: function() {
 
+        this.userNameValid = this.get('userName') != "" ? true : false;
+
         this.validate();
     
     }.observes('userName'),
 
     emailObserver: function() {
+
+        this.emailValid = this.emailReg.test( this.get('email'))  ? true : false;
 
         this.validate();
 
@@ -32,11 +40,15 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
     passwordObserver: function() {
 
+        this.passwordValid = this.passwordReg.test( this.get('password')) ? true : false;
+
         this.validate();
     
     }.observes('password'),
 
     confirmPasswordObserver: function() {
+
+        this.confirmPasswordValid = this.get('confirmPassword') == this.get('password') ? true : false;
 
         this.validate();
     
@@ -73,8 +85,6 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
         if ( this.whatToValidate == 'signin' ) {
 
-            console.log("signin made it");
-
             if ( this.emailValid && this.passwordValid ) {
 
                 console.log("signin preFlight");
@@ -84,22 +94,18 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
         if (this.whatToValidate == 'signup') {
 
-            console.log("signup made it");
+            if ( this.userNameValid && this.emailValid && this.confirmPasswordValid && this.passwordValid ) {
 
-            if ( this.userNameValid && this.emailValid && this.confirmPasswordValid ) {
-
-                console.log("signin preFlight");
+                console.log("signup preFlight");
 
             };
         };
 
         if (this.whatToValidate == 'forgot') {
 
-            console.log("forgot made it");
-
             if ( this.emailValid ) {
 
-                console.log("signin preFlight");
+                console.log("forgot preFlight");
 
             };
         };
@@ -117,15 +123,15 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
         this.confirmPassword = '';
 
-        userNameValid = false;
+        this.userNameValid = false;
 
-        userNameValid = false;
+        this.userNameValid = false;
 
-        emailValid = false;
+        this.emailValid = false;
 
-        passwordValid = false;
+        this.passwordValid = false;
 
-        confirmPasswordValid = false;
+        this.confirmPasswordValid = false;
 
     }
 });
