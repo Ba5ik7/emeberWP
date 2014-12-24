@@ -1,0 +1,18 @@
+<div class="modal forgot-pass" >
+
+    <h1>Get Password</h1>
+    <h6>Something to say about forgetting your password!</h6>
+
+    <form>
+        {{input type="text" placeholder="Email" valueBinding="email"}}
+
+        <span>Get my Password</span>
+        <span {{action 'closeModal'}} >Cancel</span>
+    </form>
+
+    <a {{action 'signUp'}} >Sign up here.</a>
+    <a {{action 'signIn'}} >Sign in here.</a>
+
+</div>
+
+<div class="modal-overlay" {{action 'closeModal'}} title="Close"></div>

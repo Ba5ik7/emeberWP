@@ -7,6 +7,8 @@
             {{/each}}
 
             {{#link-to 'posts' }} <li>Blog</li> {{/link-to}}
+            <a><li {{action 'openModal' 'signup' 'validation'}}>Sign Up</li></a>
+            <a><li {{action 'openModal' 'signin' 'validation'}}>Sign In</li></a>
         </ul>
     </nav>
 

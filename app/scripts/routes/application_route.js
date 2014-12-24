@@ -9,7 +9,48 @@ Emberwp.ApplicationRoute = Ember.Route.extend({
 
             // substate implementation when returning `true`
             return true;
+        },
+
+        openModal: function(modalName, controllerName, content) {
+
+            if ( typeof controllerName != 'undefined') {
+
+                this.controllerFor(controllerName).set('content',content);
+                
+                var controller = this.controllerFor(controllerName);
+                
+                return this.render( modalName, {
+                
+                    into: 'application',
+                
+                    outlet: 'modal',
+
+                    controller: controller
+                 
+                }); 
+            }
+
+            return this.render( modalName, {
+            
+                into: 'application',
+            
+                outlet: 'modal'
+             
+            }); 
+        },
+
+        closeModal: function() {
+            
+            return this.disconnectOutlet({
+            
+                outlet: 'modal',
+            
+                parentView: 'application'
+            
+            });
         }
+
+
     },
 
     model: function(model) {
