@@ -26,7 +26,7 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
         this.userNameValid = this.get('userName') != "" ? true : false;
 
-        this.validate();
+        this.userNameValid ? $('#username').removeClass('bad-value').addClass('good-value') : $('#username').removeClass('good-value').addClass('bad-value');
     
     }.observes('userName'),
 
@@ -34,7 +34,7 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
         this.emailValid = this.emailReg.test( this.get('email'))  ? true : false;
 
-        this.validate();
+        this.emailValid ? $('#email').removeClass('bad-value').addClass('good-value') : $('#email').removeClass('good-value').addClass('bad-value');
 
     }.observes('email'),
 
@@ -42,7 +42,7 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
         this.passwordValid = this.passwordReg.test( this.get('password')) ? true : false;
 
-        this.validate();
+        this.passwordValid ? $('#password').removeClass('bad-value').addClass('good-value') : $('#password').removeClass('good-value').addClass('bad-value');
     
     }.observes('password'),
 
@@ -50,11 +50,50 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
         this.confirmPasswordValid = this.get('confirmPassword') == this.get('password') ? true : false;
 
-        this.validate();
+        this.confirmPasswordValid ? $('#confirmPassword').removeClass('bad-value').addClass('good-value') : $('#confirmPassword').removeClass('good-value').addClass('bad-value');
     
     }.observes('confirmPassword'),
 
     actions: {
+
+        emailTip:function(){
+            toastr.info('Please use a valid email.');
+        },
+        usernameTip:function(){
+            toastr.info('Use any name you would like to.');
+        },
+        passwordTip:function(){
+            toastr.info('Password must contain an upper case letter, a number and, 5 to 33 characters');
+        },
+
+        checkUsernameTip: function(){
+            if (this.userNameValid) {
+                toastr.success('Alright champ, that <strong>user name</strong> checks out.');
+            } else{
+                toastr.error('Sorry pal, that is not a valid <strong>user name</strong>.');
+            };
+        },
+        checkEmailTip: function(){
+            if (this.emailValid) {
+                toastr.success('Alright champ, that <strong>email</strong> checks out.');
+            } else{
+                toastr.error('Sorry pal, that is not a valid <strong>email</strong>.');
+            };
+        },
+        checkPasswordTip: function(){
+            if (this.passwordValid) {
+                toastr.success('Alright champ, that <strong>password</strong> checks out.');
+            } else{
+                toastr.error('Sorry pal, that is not a valid <strong>password</strong>.');
+            };
+        },
+        checkConfirmPasswordTip: function(){
+            if (this.confirmPassword) {
+                toastr.success('Alright champ, the <strong>passwords</strong> mtach.');
+            } else{
+                toastr.error('Sorry pal, the <strong>passwords</strong> do not match.');
+            };
+        },
 
         forgotPassword: function(){
 
@@ -78,37 +117,43 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
             this.send('openModal', 'signin', 'validation');
 
+        },
+
+        submit: function(){
+
+            if ( this.whatToValidate == 'signin' ) {
+
+                if ( this.emailValid && this.passwordValid ) {
+
+                    console.log("signin preFlight");
+
+                }else{
+                    toastr.warning('Sorry, the form is not complete');
+                };
+            };
+
+            if (this.whatToValidate == 'signup') {
+
+                if ( this.userNameValid && this.emailValid && this.confirmPasswordValid && this.passwordValid ) {
+
+                    console.log("signup preFlight");
+
+                }else {
+                    toastr.warning('Sorry, the form is not complete');
+                };
+            };
+
+            if (this.whatToValidate == 'forgot') {
+
+                if ( this.emailValid ) {
+
+                    console.log("forgot preFlight");
+
+                }else{
+                    toastr.warning('Sorry, the form is not complete');
+                };
+            };
         }
-    },
-
-    validate: function(){
-
-        if ( this.whatToValidate == 'signin' ) {
-
-            if ( this.emailValid && this.passwordValid ) {
-
-                console.log("signin preFlight");
-
-            };
-        };
-
-        if (this.whatToValidate == 'signup') {
-
-            if ( this.userNameValid && this.emailValid && this.confirmPasswordValid && this.passwordValid ) {
-
-                console.log("signup preFlight");
-
-            };
-        };
-
-        if (this.whatToValidate == 'forgot') {
-
-            if ( this.emailValid ) {
-
-                console.log("forgot preFlight");
-
-            };
-        };
     },
 
     resetForm: function(){
@@ -134,4 +179,5 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
         this.confirmPasswordValid = false;
 
     }
+
 });

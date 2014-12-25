@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Ubuntu);
+
+@import "toastr";
+
 body, html{
     background: #772953;
     font-family: 'Ubuntu', sans-serif;
@@ -268,4 +271,11 @@ svg rect{
     z-index: 1000;
     overflow: auto;
     max-width: 375px;
+}
+
+.good-value{
+    border-bottom: 1px solid #00F000 !important;
+}
+.bad-value{
+    border-bottom: 1px solid #FF0000 !important;
 }

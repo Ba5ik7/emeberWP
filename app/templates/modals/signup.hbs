@@ -6,12 +6,38 @@
 
 
     <form>
-        {{input type="text" placeholder="Username" valueBinding="userName" }}
-        {{input type="text" placeholder="Email" valueBinding="email"  }}
-        {{input type="password" placeholder="Password" valueBinding="password" }}
-        {{input type="password" placeholder="Confirm Password" valueBinding="confirmPassword" }}
+        {{input 
+                type="text"
+                placeholder="Username"
+                valueBinding="userName"
+                id="username" focus-in="usernameTip"
+                focus-out="checkUsernameTip"
+        }}
+        {{input 
+                type="text"
+                placeholder="Email"
+                valueBinding="email"
+                id="email"
+                focus-in="emailTip"
+                focus-out="checkEmailTip"
+        }}
+        {{input 
+                type="password"
+                placeholder="Password"
+                valueBinding="password"
+                id="password"
+                focus-in="passwordTip"
+                focus-out="checkPasswordTip"
+        }}
+        {{input 
+                type="password"
+                placeholder="Confirm Password"
+                valueBinding="confirmPassword"
+                id="confirmPassword"
+                focus-out="checkConfirmPasswordTip"
+        }}
 
-        <span>Sign Up</span>
+        <span {{action 'submit'}} >Sign Up</span>
         <span {{action 'closeModal'}} >Cancel</span>
 
     </form>

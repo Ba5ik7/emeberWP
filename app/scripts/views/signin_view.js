@@ -7,6 +7,7 @@ Emberwp.SigninView = Ember.View.extend({
         this.get('controller').set('whatToValidate', 'signin');
 
          $('.modal').css({ opacity: '0',  'transform-origin':'top', transform:'rotateX(-90deg)', top:'-300px' });
+
     },
 
     animateIn : function (done) {

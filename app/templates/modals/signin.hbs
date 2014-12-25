@@ -6,10 +6,24 @@
 
 
     <form>
-        {{input type="text" placeholder="Email" valueBinding="email" }}
-        {{input type="password" placeholder="Password" valueBinding="password" }}
+        {{input 
+                type="text"
+                placeholder="Email"
+                valueBinding="email"
+                id="email"
+                focus-in="emailTip"
+                focus-out="checkEmailTip"
+        }}
+        {{input 
+                type="password" 
+                placeholder="Password" 
+                valueBinding="password" 
+                id="password" 
+                focus-in='passwordTip'
+                focus-out="checkPasswordTip"
+        }}
 
-        <span>Sign Up</span>
+        <span {{action  'submit' }} >Sign Up</span>
         <span {{action 'closeModal'}} >Cancel</span>
     </form>
 
