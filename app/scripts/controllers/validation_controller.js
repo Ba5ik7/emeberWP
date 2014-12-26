@@ -14,45 +14,45 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
     whatToValidate: null,
 
-    userName: null,
+    userNameTxt: null,
 
-    email:null,
+    emailTxt:null,
 
-    password:null,
+    passwordTxt:null,
 
-    confirmPassword: null,
+    confirmPasswordTxt: null,
 
     userNameObserver: function() {
 
-        this.userNameValid = this.get('userName') != "" ? true : false;
+        this.userNameValid = this.get('userNameTxt') != "" ? true : false;
 
         this.userNameValid ? $('#username').removeClass('bad-value').addClass('good-value') : $('#username').removeClass('good-value').addClass('bad-value');
     
-    }.observes('userName'),
+    }.observes('userNameTxt'),
 
     emailObserver: function() {
 
-        this.emailValid = this.emailReg.test( this.get('email'))  ? true : false;
+        this.emailValid = this.emailReg.test( this.get('emailTxt'))  ? true : false;
 
-        this.emailValid ? $('#email').removeClass('bad-value').addClass('good-value') : $('#email').removeClass('good-value').addClass('bad-value');
+        this.emailValid ? $('#userEmail').removeClass('bad-value').addClass('good-value') : $('#userEmail').removeClass('good-value').addClass('bad-value');
 
-    }.observes('email'),
+    }.observes('emailTxt'),
 
     passwordObserver: function() {
 
-        this.passwordValid = this.passwordReg.test( this.get('password')) ? true : false;
+        this.passwordValid = this.passwordReg.test( this.get('passwordTxt')) ? true : false;
 
         this.passwordValid ? $('#password').removeClass('bad-value').addClass('good-value') : $('#password').removeClass('good-value').addClass('bad-value');
     
-    }.observes('password'),
+    }.observes('passwordTxt'),
 
     confirmPasswordObserver: function() {
 
-        this.confirmPasswordValid = this.get('confirmPassword') == this.get('password') ? true : false;
+        this.confirmPasswordValid = this.get('confirmPasswordTxt') == this.get('passwordTxt') ? true : false;
 
         this.confirmPasswordValid ? $('#confirmPassword').removeClass('bad-value').addClass('good-value') : $('#confirmPassword').removeClass('good-value').addClass('bad-value');
     
-    }.observes('confirmPassword'),
+    }.observes('confirmPasswordTxt'),
 
     actions: {
 

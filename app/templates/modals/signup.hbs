@@ -9,22 +9,23 @@
         {{input 
                 type="text"
                 placeholder="Username"
-                valueBinding="userName"
-                id="username" focus-in="usernameTip"
+                valueBinding="userNameTxt"
+                id="username" 
+                focus-in="usernameTip"
                 focus-out="checkUsernameTip"
         }}
         {{input 
                 type="text"
                 placeholder="Email"
-                valueBinding="email"
-                id="email"
+                valueBinding="emailTxt"
+                id="userEmail"
                 focus-in="emailTip"
                 focus-out="checkEmailTip"
         }}
         {{input 
                 type="password"
                 placeholder="Password"
-                valueBinding="password"
+                valueBinding="passwordTxt"
                 id="password"
                 focus-in="passwordTip"
                 focus-out="checkPasswordTip"
@@ -32,7 +33,7 @@
         {{input 
                 type="password"
                 placeholder="Confirm Password"
-                valueBinding="confirmPassword"
+                valueBinding="confirmPasswordTxt"
                 id="confirmPassword"
                 focus-out="checkConfirmPasswordTip"
         }}

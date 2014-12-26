@@ -115,7 +115,6 @@ header{
     input:checked ~ nav[role="off-canvas"] {
         opacity:1;
         left:0;
-        height: 100vh;
         background-color: #000;
     }
     nav[role="off-canvas"] {
