@@ -227,6 +227,75 @@ header {
       header nav ul a:hover {
         background: #FFF;
         color: #333333; }
+  header input[type=checkbox] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px; }
+  header label {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 50px;
+    height: 50px;
+    font-size: 1.1em;
+    color: #fff;
+    -webkit-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -moz-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -ms-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -o-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    user-select: none;
+    margin: 0; }
+  header label:after {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    content: "\2261";
+    font-size: 38px; }
+  header label:hover,
+  header input:checked ~ label {
+    background-color: #FFF;
+    color: #000; }
+  header input:checked ~ nav[role="off-canvas"] {
+    opacity: 1;
+    left: 0;
+    height: 100vh;
+    background-color: #000; }
+  header nav[role="off-canvas"] {
+    height: 100vh;
+    background-color: #000;
+    -webkit-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -moz-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -ms-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -o-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: absolute;
+    top: 55px;
+    left: -300px;
+    width: 300px;
+    opacity: 0; }
+    header nav[role="off-canvas"] ul a {
+      padding: 0;
+      float: none; }
+      header nav[role="off-canvas"] ul a:hover {
+        background: #000;
+        color: #FFF; }
+    header nav[role="off-canvas"] ul li {
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+      text-align: left;
+      padding-left: 20px;
+      display: block;
+      -webkit-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      -moz-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      -ms-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      -o-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+      header nav[role="off-canvas"] ul li:hover {
+        background: #FFF;
+        color: #000; }
 
 footer {
   display: none;

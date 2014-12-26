@@ -1,14 +1,22 @@
 <header>
 
-    <nav>
+<input type="checkbox" id="menu" checked>
+<label for="menu" onclick></label>
+
+<nav>
+    <ul>
+            <a><li {{action 'openModal' 'signup' 'validation'}}>Sign Up</li></a>
+            <a><li {{action 'openModal' 'signin' 'validation'}}>Sign In</li></a>
+    </ul>
+</nav>
+
+    <nav role="off-canvas" >
         <ul>
             {{#each row in pages}}
                 {{#link-to 'page' row.id}} <li>{{row.title}}</li> {{/link-to}}
             {{/each}}
 
             {{#link-to 'posts' }} <li>Blog</li> {{/link-to}}
-            <a><li {{action 'openModal' 'signup' 'validation'}}>Sign Up</li></a>
-            <a><li {{action 'openModal' 'signin' 'validation'}}>Sign In</li></a>
         </ul>
     </nav>
 
