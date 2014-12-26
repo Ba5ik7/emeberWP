@@ -160,13 +160,13 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
         this.whatToValidate = '';
 
-        this.userName = '';
+        this.userNameTxt = '';
 
-        this.email = '';
+        this.emailTxt = '';
 
-        this.password = '';
+        this.passwordTxt = '';
 
-        this.confirmPassword = '';
+        this.confirmPasswordTxt = '';
 
         this.userNameValid = false;
 
