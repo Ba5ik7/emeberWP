@@ -24,3 +24,13 @@
     </article>
     
 {{/each}}
+
+{{#if loadingMore}}
+    {{ajax-loader}}
+{{/if}}
+
+{{#each row in comments}}
+    
+    {{row.content}}
+
+{{/each}}

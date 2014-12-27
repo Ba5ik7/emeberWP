@@ -10,6 +10,7 @@ Emberwp.BASE_URL = "http://localhost/wordpress";
 Emberwp.NULL_START = true;
 Emberwp.TRANS_SWITCH = false;
 Emberwp.IS_PAGES = false;
+Emberwp.CURRENT_POST_ID = 0;
 
 
 /* Order and include as you please. */

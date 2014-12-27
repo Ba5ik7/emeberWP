@@ -6,11 +6,11 @@ Emberwp.PostRoute = Ember.Route.extend({
 
         var self = this;
 
-        self.postID = params.post_id;
+        Emberwp.CURRENT_POST_ID  = params.post_id;
 
         return this.store.filter('posts', function(item){
                  
-                 if (item.id == self.postID) {
+                 if (item.id == Emberwp.CURRENT_POST_ID ) {
 
                     return item;
                 };
@@ -18,8 +18,8 @@ Emberwp.PostRoute = Ember.Route.extend({
     },
 
 
-    renderTemplate: function() {
-        
+    renderTemplate: function(controller, model) {
+
         this.render("post", {
         
             outlet: "centercontent",
