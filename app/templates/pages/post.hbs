@@ -16,7 +16,7 @@
 
             <img {{bind-attr src=author.avatar }}>
 
-            {{author.nickname}}
+            {{author.name}}
             <time>{{date}}</time>
 
         </div>
@@ -30,7 +30,10 @@
 {{/if}}
 
 {{#each row in comments}}
-    
-    {{row.content}}
-
+    <div class="comment-list-item">
+        <time>{{row.date}}</time>
+        {{{row.content}}}
+        <img {{bind-attr src=row.author.avatar }}>
+        {{row.author.name}}
+    </div>
 {{/each}}

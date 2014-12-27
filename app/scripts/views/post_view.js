@@ -7,6 +7,10 @@ Emberwp.PostView = Ember.View.extend({
         $('div h1:first-child').css({ opacity: '0'});
         $('article div div').css({ opacity: '0'});
         $('.featured-image').css({ opacity: '0', transform: 'scale(0.7)' });
+        
+
+        if ( $(document).height() > $(window).height() == false )
+            this.get('controller').send('getMore');
 
         $(window).on('scroll', $.proxy(this.didScroll, this));
     },
@@ -32,7 +36,7 @@ Emberwp.PostView = Ember.View.extend({
     },
 
     didScroll: function(){
-        
+
         if (this.isScrolledToBottom()) {
         
             this.get('controller').send('getMore');
