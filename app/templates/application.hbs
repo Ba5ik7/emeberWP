@@ -1,14 +1,14 @@
 <header>
 
-<input type="checkbox" id="menu" checked>
-<label for="menu" onclick></label>
+    <input type="checkbox" id="menu" checked>
+    <label for="menu" onclick></label>
 
-<nav>
-    <ul>
-            <a><li {{action 'openModal' 'signup' 'validation'}}>Sign Up</li></a>
-            <a><li {{action 'openModal' 'signin' 'validation'}}>Sign In</li></a>
-    </ul>
-</nav>
+    <nav id="logIn">
+        <ul>
+                <a><li {{action 'openModal' 'signup' 'validation'}}>Sign Up</li></a>
+                <a><li {{action 'openModal' 'signin' 'validation'}}>Sign In</li></a>
+        </ul>
+    </nav>
 
     <nav role="off-canvas" >
         <ul>
@@ -23,10 +23,13 @@
 </header>
 
 <main role="main" >
-    {{outlet 'centercontent'}}
+    <div class="content-wrapper">
+        <div class="content-overlay"></div>
+        {{outlet 'centercontent'}}
+    </div>
 </main>
-
-
+{{!-- 
+{{google-map classNames="map-canvas" latitude="40.7142700" longitude="-74.0059700"}} --}}
 <footer class="site-footer">
     <p>I'm the Sticky Footer.</p>
 </footer>

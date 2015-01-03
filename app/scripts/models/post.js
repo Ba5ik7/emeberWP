@@ -1,83 +1,81 @@
-Emberwp.Posts = DS.Model.extend({
+Emberwp.Post = DS.Model.extend({
 
-    ID: DS.attr('number'),
-
-    title: DS.attr('string'),
-
+    attachments: DS.attr('object'),
+    
     author: DS.attr('object'),
-
+    
+    categories: DS.attr('object'),
+    
+    comment_count: DS.attr('number'),
+    
     comment_status: DS.attr('string'),
-
+    
+    comments: DS.attr('object'),
+    
     content: DS.attr('string'),
-
+    
+    custom_fields: DS.attr('object'),
+    
     date: DS.attr('string'),
-
-    date_gmt: DS.attr('string'),
-
-    date_tz: DS.attr('string'),
 
     excerpt: DS.attr('string'),
 
-    featured_image: DS.attr('object'),
-
-    format: DS.attr('string'),
-
-    guid: DS.attr('string'),
-
-    link: DS.attr('string'),
-
-    menu_order: DS.attr('number'),
-
-    meta: DS.attr('object'),
-
     modified: DS.attr('string'),
-
-    modified_gmt: DS.attr('string'),
-
-    modified_tz: DS.attr('string'),
-
-    parent: DS.attr('number'),
-
-    ping_status: DS.attr('string'),
-
+    
     slug: DS.attr('string'),
 
     status: DS.attr('string'),
+    
+    tags: DS.attr('object'),
 
-    sticky: DS.attr('boolean'),
+    thumbnail: DS.attr('string'),
 
-    terms: DS.attr('object'),
+    thumbnail_images: DS.attr('object'),
 
-    title: DS.attr('string'),
+    thumbnail_size: DS.attr('string'),
+    
+    title: DS.attr('object'),
+    
+    title_plain: DS.attr('object'),
+    
+    type: DS.attr('string'),
 
-    type: DS.attr('string')
+    url: DS.attr('string')
 });
-
-Emberwp.PostSerializer = DS.JSONSerializer.extend({
-
-    primaryKey: 'ID',
-
-});
-
 
 Emberwp.PostAdapter = DS.RESTAdapter.extend({
 
-    namespace: 'wp-json/posts',
+    findAll: function(store, type, record) {
 
-    host: Emberwp.BASE_URL,
+        var _promise = new Ember.RSVP.Promise(function(resolve, reject) {
+        
+            jQuery.ajax({
+        
+                type: 'GET',
+        
+                url: Emberwp.BASE_URL + 'get_posts/',
+        
+                dataType: 'json',
+        
+            }).then(function(data) {
 
-    //Takes the records name out of the call
-    buildURL : function(record, suffix, id){
+                delete data.status;
+                delete data.count;
+                delete data.count_total;
+                delete data.pages;
+                delete data.query;
+        
+                Ember.run(null, resolve, data);
+        
+                }, function(jqXHR) {
+        
+                jqXHR.then = null;
+        
+                Ember.run(null, reject, jqXHR);
+        
+            })
+        });
 
-            var url;
-            
-            return this._super(url);
-    },
-
-    //tells ember to fuck off when forming the URL 
-    pathForType: function(type) {
-
-        return type;
+        return _promise;
     }
-
 });

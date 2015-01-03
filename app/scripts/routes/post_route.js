@@ -8,7 +8,7 @@ Emberwp.PostRoute = Ember.Route.extend({
 
         Emberwp.CURRENT_POST_ID  = params.post_id;
 
-        return this.store.filter('posts', function(item){
+        return this.store.filter('post', function(item){
                  
                  if (item.id == Emberwp.CURRENT_POST_ID ) {
 

@@ -6,6 +6,9 @@ body, html{
     background: #772953;
     font-family: 'Ubuntu', sans-serif;
     color: #FFF;
+
+
+
 }
 img{
     max-width: 100%;
@@ -17,6 +20,8 @@ html {
 }
 body {
     margin: 0 0 100px; /* bottom = footer height */
+    overflow-x: hidden;
+
 }
 a{
     cursor: pointer;
@@ -32,18 +37,30 @@ main {
     min-height: 100%;
     margin: 50px auto 0 auto;
     padding: 20px;
-    h2{
-        font-size: 24px;
-        margin: 25px 0 15px 0;
-    }
-    p{
-        line-height: 22px;
+    // -webkit-perspective: 600px;
+
+    div.content-wrapper{
+        // -webkit-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        // -moz-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        // -ms-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        // -o-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        // transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        // -webkit-transform: translateX(-10px) translateY(5px) rotateY(12deg);
+        // opacity:.7;
+            h2{
+                font-size: 24px;
+                margin: 25px 0 15px 0;
+            }
+            p{
+                line-height: 22px;
+            }
     }
 }
 main:after {
     content: "";
     display: block;
 }
+
 header{
 
     float: left;
@@ -115,9 +132,9 @@ header{
     input:checked ~ nav[role="off-canvas"] {
         opacity:1;
         left:0;
-        background-color: #000;
     }
-    nav[role="off-canvas"] {
+
+    nav[role="off-canvas"] { 
         height: 100vh;
         background-color: #000;
         -webkit-transition: 0.25s all cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -368,3 +385,10 @@ svg rect{
     padding: 20px;
     margin-top: 30px;
 }
+
+.map-canvas{
+    width:  100vw;
+    height:  100vh;
+}
+
+

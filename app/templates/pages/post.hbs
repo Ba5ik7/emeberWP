@@ -2,8 +2,8 @@
 
     <article>
 
-        {{#if featured_image}}
-                <img class="featured-image" {{bind-attr src=featured_image.source }}>
+        {{#if thumbnail_images}}
+                <img class="featured-image" {{bind-attr src=thumbnail_images.full.url}}>
         {{/if}}
 
         <div>
@@ -31,9 +31,12 @@
 
 {{#each row in comments}}
     <div class="comment-list-item">
-        <time>{{row.date}}</time>
-        {{{row.content}}}
+        
+        
         <img {{bind-attr src=row.author.avatar }}>
         {{row.author.name}}
+        <time>{{row.date}}</time>
+
+        {{{row.content}}}
     </div>
 {{/each}}

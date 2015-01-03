@@ -1,30 +1,17 @@
-Emberwp.Comment = DS.Model.extend({
-
-    post: DS.attr('number'),
-    
-    content: DS.attr('string'),
+Emberwp.Nonce = DS.Model.extend({
 
     status: DS.attr('string'),
-    
-    type: DS.attr('string'),
-    
-    parent: DS.attr('number'),
 
-    author: DS.attr('object'),
+    controller: DS.attr('string'),
 
-    date: DS.attr('string'),
+    method: DS.attr('string'),
 
-    date_tz: DS.attr('string'),
-    
-    date_gmt: DS.attr('string'),
+    nonce: DS.attr('string')
 
-    meta: DS.attr('object')
-  
 });
 
+Emberwp.NonceAdapter = DS.RESTAdapter.extend({
 
-Emberwp.CommentAdapter = DS.RESTAdapter.extend({
-    
     findAll: function(store, type, record) {
 
         var _promise = new Ember.RSVP.Promise(function(resolve, reject) {
@@ -33,15 +20,17 @@ Emberwp.CommentAdapter = DS.RESTAdapter.extend({
         
                 type: 'GET',
         
-                url: Emberwp.BASE_URL + 'wp-json/posts/' + Emberwp.CURRENT_POST_ID + '/comments/',
+                url: Emberwp.BASE_URL + 'get_nonce/?controller=user&method=register',
         
                 dataType: 'json',
         
             }).then(function(data) {
 
+                data.id = 1;
+
                 var tempStr = JSON.stringify(  data );
 
-                tempStr = '{ "comment" : ' + tempStr + '}';
+                tempStr = '{ "nonce" : [' + tempStr + ']}';
 
                 data = JSON.parse(tempStr);
         
@@ -49,16 +38,13 @@ Emberwp.CommentAdapter = DS.RESTAdapter.extend({
         
                 }, function(jqXHR) {
         
-                jqXHR.then = null; // tame jQuery's ill mannered promises
+                jqXHR.then = null;
         
                 Ember.run(null, reject, jqXHR);
         
             })
-        
         });
 
         return _promise;
     }
-
 });
-

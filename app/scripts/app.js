@@ -6,11 +6,13 @@ true,   "positionClass": "toast-bottom-center",   "onclick": null,
 
 var Emberwp = window.Emberwp = Ember.Application.create();
 
-Emberwp.BASE_URL = "http://localhost/wordpress";
+Emberwp.BASE_URL = "http://localhost/wordpress/api/";
 Emberwp.NULL_START = true;
 Emberwp.TRANS_SWITCH = false;
 Emberwp.IS_PAGES = false;
 Emberwp.CURRENT_POST_ID = 0;
+Emberwp.USER_OBJ = {};
+Emberwp.LOGIN_TYPE = "";
 
 
 /* Order and include as you please. */

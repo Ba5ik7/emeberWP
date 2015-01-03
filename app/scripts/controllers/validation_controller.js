@@ -88,7 +88,7 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
             };
         },
         checkConfirmPasswordTip: function(){
-            if (this.confirmPassword) {
+            if (this.confirmPasswordValid) {
                 toastr.success('Alright champ, the <strong>passwords</strong> mtach.');
             } else{
                 toastr.error('Sorry pal, the <strong>passwords</strong> do not match.');
@@ -121,6 +121,12 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
         submit: function(){
 
+            var _this = this;
+
+            this.store.init();
+
+            Emberwp.LOGIN_TYPE = this.whatToValidate;
+
             if ( this.whatToValidate == 'signin' ) {
 
                 if ( this.emailValid && this.passwordValid ) {
@@ -136,9 +142,47 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
                 if ( this.userNameValid && this.emailValid && this.confirmPasswordValid && this.passwordValid ) {
 
-                    console.log("signup preFlight");
+                    this.get('store').findAll('nonce').then(function(data){
+
+                        _this.get('store').filter('nonce', function(record) {
+
+                            Emberwp.USER_OBJ.nonce = record.get('nonce');
+
+                            Emberwp.USER_OBJ.userNameTxt = _this.get('userNameTxt');
+
+                            Emberwp.USER_OBJ.emailTxt = _this.get('emailTxt');
+
+                            Emberwp.USER_OBJ.passwordTxt  = _this.get('passwordTxt');
+
+                            _this.get('store').findAll('user_session').then(function(data){
+
+                                _this.get('store').filter('user_session', function(record) {
+
+                                    if(record.get('status') == 'error'){
+
+                                        toastr.clear();
+
+                                        toastr.warning( record.get('error')  );
+
+                                    } else {
+
+                                        $('#logIn').css('display', 'none');
+
+                                        console.log("");
+
+                                        window.storagejs.setItem( 'user_session', '{ "cookie" : ' + JSON.stringify(  record.get('cookie') ) + '}'  ); 
+
+                                        _this.send('closeModal');
+                                    }
+                                });
+                            });
+                        });
+                    });
 
                 }else {
+
+                    toastr.clear();
+
                     toastr.warning('Sorry, the form is not complete');
                 };
             };
@@ -147,7 +191,21 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
 
                 if ( this.emailValid ) {
 
-                    console.log("forgot preFlight");
+                    Emberwp.USER_OBJ.emailTxt = _this.get('emailTxt');
+
+                    _this.get('store').findAll('user_session').then(function(data){
+
+                        _this.get('store').filter('user_session', function(record) {
+
+                            toastr.clear();
+
+                            toastr.warning( record.get('error')  );
+
+                            _this.resetForm();
+
+                            _this.send('closeModal');
+                        });
+                    });
 
                 }else{
                     toastr.warning('Sorry, the form is not complete');
@@ -157,6 +215,8 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
     },
 
     resetForm: function(){
+
+        toastr.clear();
 
         this.whatToValidate = '';
 
@@ -177,7 +237,5 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
         this.passwordValid = false;
 
         this.confirmPasswordValid = false;
-
     }
-
 });

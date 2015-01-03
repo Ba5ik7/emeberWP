@@ -2,14 +2,14 @@ Emberwp.ApplicationRoute = Ember.Route.extend({
 
     actions: {
 
-        error: function(error, transition) {
+        // error: function(error, transition) {
 
-            // Manage your errors
-            Ember.onerror(error);
+        //     // Manage your errors
+        //     Ember.onerror(error);
 
-            // substate implementation when returning `true`
-            return true;
-        },
+        //     // substate implementation when returning `true`
+        //     return true;
+        // },
 
         openModal: function(modalName, controllerName, content) {
 
@@ -61,9 +61,9 @@ Emberwp.ApplicationRoute = Ember.Route.extend({
     
             new Em.RSVP.hash({
 
-                pages : self.store.find('pages'),
+                pages : self.store.find('page'),
                 
-                posts : self.store.find('posts')
+                posts : self.store.find('post')
                 
             }).then(function (results) {
 

@@ -2,7 +2,7 @@ Emberwp.PageRoute = Ember.Route.extend({
     
     model: function( params ) {
 
-        return this.store.find('pages', params.page_id);
+        return this.store.find('page', params.page_id);
 
         // var self = this;
 

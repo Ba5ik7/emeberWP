@@ -12,9 +12,9 @@ Emberwp.PostController = Ember.ArrayController.extend({
 
                 this.set('loadingMore', true);
 
-                this.set('comments',  this.store.find('comments') );
+                this.set('comment',  this.store.find('comment') );
 
-                Emberwp.Comments.on('didLoad', this.set('loadingMore', false));
+                Emberwp.Comment.on('didLoad', this.set('loadingMore', false));
 
             };
         },
@@ -23,16 +23,18 @@ Emberwp.PostController = Ember.ArrayController.extend({
             
             this.firstLoad = true;
 
-            this.store.findAll('comments').then(function(record){
+            this.store.findAll('comment').then(function(record){
+                
                 record.content.forEach(function(rec) {
+                
                     Ember.run.once(this, function() {
 
                         rec.unloadRecord();
                     
                     });
+                
                 }, this);
             });
-
         }
     }
 });

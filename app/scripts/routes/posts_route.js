@@ -2,7 +2,7 @@ Emberwp.PostsRoute = Ember.Route.extend({
 
     model: function() {
 
-        return this.store.all('posts');
+        return this.store.all('post');
 
     },
 
