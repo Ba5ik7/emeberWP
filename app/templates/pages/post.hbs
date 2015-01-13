@@ -8,16 +8,16 @@
 
         <div>
 
-            <h1>{{title}}</h1>
+            {{!-- <h1>{{title}}</h1> --}}
 
             <div>
                 {{{content}}}
             </div>
 
-            <img {{bind-attr src=author.avatar }}>
+{{!--             <img {{bind-attr src=author.avatar }}>
 
             {{author.name}}
-            <time>{{date}}</time>
+            <time>{{date}}</time> --}}
 
         </div>
         
@@ -25,11 +25,11 @@
     
 {{/each}}
 
-{{#if loadingMore}}
+{{!-- {{#if loadingMore}}
     {{ajax-loader}}
-{{/if}}
+{{/if}} --}}
 
-{{#each row in comments}}
+{{!-- {{#each row in comments}}
     <div class="comment-list-item">
         
         
@@ -39,4 +39,4 @@
 
         {{{row.content}}}
     </div>
-{{/each}}
+{{/each}} --}}

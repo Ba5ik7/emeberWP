@@ -5,6 +5,10 @@ Emberwp.Router.map(function () {
     this.resource('post', { path: '/post/:post_id' });
 
     this.route('posts');
+    
+    this.route('experiments');
+    
+    this.route('portfolio');
 
     this.route("areyoulosted", { path: "*path"});
 

@@ -1,4 +1,4 @@
-Emberwp.Post = DS.Model.extend({
+Emberwp.Experiment = DS.Model.extend({
 
     attachments: DS.attr('object'),
     
@@ -43,7 +43,7 @@ Emberwp.Post = DS.Model.extend({
     url: DS.attr('string')
 });
 
-Emberwp.PostAdapter = DS.RESTAdapter.extend({
+Emberwp.ExperimentAdapter = DS.RESTAdapter.extend({
 
     findAll: function(store, type, record) {
 
@@ -53,8 +53,7 @@ Emberwp.PostAdapter = DS.RESTAdapter.extend({
         
                 type: 'GET',
         
-                //url: Emberwp.BASE_URL + 'get_recent_posts/?count=5',
-                 url: Emberwp.BASE_URL + 'get_posts/',
+                url: Emberwp.BASE_URL + 'get_category_posts/?id=3',
         
                 dataType: 'json',
         
@@ -62,9 +61,14 @@ Emberwp.PostAdapter = DS.RESTAdapter.extend({
 
                 delete data.status;
                 delete data.count;
-                delete data.count_total;
                 delete data.pages;
-                delete data.query;
+                delete data.category;
+
+                
+
+                data =  '{ "experiment" : ' + JSON.stringify(data.posts) + '}';
+
+                data = jQuery.parseJSON( data);
         
                 Ember.run(null, resolve, data);
         

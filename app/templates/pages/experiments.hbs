@@ -1,0 +1,12 @@
+<div class="image-gallery">
+  
+{{#each row in experiment}}
+{{#link-to 'post' row.id }}<div class="cardWrapper">
+  <div class="card">
+  <div class="cardFace front"><img {{bind-attr src=row.thumbnail_images.full.url }}></div>
+  <div class="cardFace back"><div class="moreInfo">This is just an example of how you can customize the content of any card face.</div></div>
+  </div>
+</div>{{/link-to}}
+{{/each}}
+  
+</div>

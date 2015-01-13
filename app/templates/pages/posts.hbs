@@ -2,10 +2,10 @@
 
     <summary>
 
-        <time>{{date}}</time>
+        {{!-- <time>{{date}}</time> --}}
 
-        {{#if thumbnail}}
-            <img {{bind-attr src=thumbnail }}>
+        {{#if thumbnail_images}}
+            <img {{bind-attr src=thumbnail_images.full.url }}>
         {{/if}}
         
         <h1>{{title}}</h1>

@@ -1,29 +1,29 @@
-Emberwp.GoogleMapComponent = Ember.Component.extend({
+// Emberwp.GoogleMapComponent = Ember.Component.extend({
 
-    insertMap: function() {
+//     insertMap: function() {
         
-        var container = $(".map-canvas");
+//         var container = $(".map-canvas");
 
-        console.log("this", container);
+//         console.log("this", container);
 
-        var options = {
+//         var options = {
             
-            center: new google.maps.LatLng(this.get("latitude"), this.get("longitude") ),
+//             center: new google.maps.LatLng(this.get("latitude"), this.get("longitude") ),
             
-            zoom: 17,
+//             zoom: 17,
             
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
+//             mapTypeId: google.maps.MapTypeId.ROADMAP,
 
-            height: 500,
+//             height: 500,
 
-            width:500
+//             width:500
         
-        };
+//         };
 
-        new google.maps.Map(container[0], options);
+//         new google.maps.Map(container[0], options);
     
-    }.on('didInsertElement')
+//     }.on('didInsertElement')
 
 
     
-});
+// });

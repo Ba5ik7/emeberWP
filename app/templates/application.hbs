@@ -1,7 +1,8 @@
-<header>
+<canvas id="canvas-background"></canvas>
 
-    <input type="checkbox" id="menu" checked>
-    <label for="menu" onclick></label>
+<header>
+    
+    <span id="ham" {{action 'toggleMenu'}}></span>
 
     <nav id="logIn">
         <ul>
@@ -10,29 +11,34 @@
         </ul>
     </nav>
 
+    <form>
+        <input type="checkbox" id="search-btn" >
+        <label id="search" for="search-btn" onclick></label>
+        {{input placeholder="Search..." }}
+    </form>
+
     <nav role="off-canvas" >
         <ul>
             {{#each row in pages}}
-                {{#link-to 'page' row.id}} <li>{{row.title}}</li> {{/link-to}}
+                {{#link-to 'page' row.id}} <li class="icon-uniF015" {{action 'toggleMenu'}}  >{{row.title}}</li> {{/link-to}}
             {{/each}}
 
-            {{#link-to 'posts' }} <li>Blog</li> {{/link-to}}
+            {{#link-to 'portfolio' }} <li class="icon-uniF1D0" {{action 'toggleMenu'}} >Portfolio</li> {{/link-to}}
+            {{#link-to 'experiments' }} <li class="icon-uniF0C3" {{action 'toggleMenu'}} >Experiments</li> {{/link-to}}
+            {{#link-to 'posts' }} <li class="icon-uniF19D" {{action 'toggleMenu'}} >Resume</li> {{/link-to}}
+            {{#link-to 'posts' }} <li class="icon-uniF1EA" {{action 'toggleMenu'}} >Blog</li> {{/link-to}}
+            {{#link-to 'posts' }} <li class="icon-uniF17C" {{action 'toggleMenu'}} >Tux Heads</li> {{/link-to}}
         </ul>
     </nav>
-
 </header>
 
+<div id="closeMenus" {{action 'closeMenu'}} >
 <main role="main" >
     <div class="content-wrapper">
-        <div class="content-overlay"></div>
         {{outlet 'centercontent'}}
     </div>
 </main>
-{{!-- 
-{{google-map classNames="map-canvas" latitude="40.7142700" longitude="-74.0059700"}} --}}
-<footer class="site-footer">
-    <p>I'm the Sticky Footer.</p>
-</footer>
+</div>
 
 {{outlet modal}}
 {{outlet loading}}

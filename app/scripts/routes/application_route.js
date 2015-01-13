@@ -40,6 +40,8 @@ Emberwp.ApplicationRoute = Ember.Route.extend({
         },
 
         closeModal: function() {
+
+            toastr.clear();
             
             return this.disconnectOutlet({
             

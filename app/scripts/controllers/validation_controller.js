@@ -70,28 +70,28 @@ Emberwp.ValidationController = Ember.ObjectController.extend({
             if (this.userNameValid) {
                 toastr.success('Alright champ, that <strong>user name</strong> checks out.');
             } else{
-                toastr.error('Sorry pal, that is not a valid <strong>user name</strong>.');
+                toastr.error('Sorry, that is not a valid <strong>user name</strong>.');
             };
         },
         checkEmailTip: function(){
             if (this.emailValid) {
                 toastr.success('Alright champ, that <strong>email</strong> checks out.');
             } else{
-                toastr.error('Sorry pal, that is not a valid <strong>email</strong>.');
+                toastr.error('Sorry, that is not a valid <strong>email</strong>.');
             };
         },
         checkPasswordTip: function(){
             if (this.passwordValid) {
                 toastr.success('Alright champ, that <strong>password</strong> checks out.');
             } else{
-                toastr.error('Sorry pal, that is not a valid <strong>password</strong>.');
+                toastr.error('Sorry, that is not a valid <strong>password</strong>.');
             };
         },
         checkConfirmPasswordTip: function(){
             if (this.confirmPasswordValid) {
                 toastr.success('Alright champ, the <strong>passwords</strong> mtach.');
             } else{
-                toastr.error('Sorry pal, the <strong>passwords</strong> do not match.');
+                toastr.error('Sorry, the <strong>passwords</strong> do not match.');
             };
         },
 

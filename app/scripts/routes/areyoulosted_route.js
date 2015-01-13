@@ -2,7 +2,7 @@ Emberwp.AreyoulostedRoute = Ember.Route.extend({
     
     beforeModel: function() {
     
-        this.transitionTo('posts');
+        this.transitionTo('page', 57);
     
     }
 });

@@ -11,6 +11,6 @@ Emberwp.PostsView = Ember.View.extend({
     },
 
     animateOut : function (done) {
-        TweenMax.staggerTo("summary", .3, {force3D:true,  opacity:'0',  right:'50', ease:Sine.easeOut }, .3, done);
+        TweenMax.to("summary", .3, {force3D:true,  opacity:'0',  right:'50', ease:Sine.easeOut, onComplete:done });
     }
 });
